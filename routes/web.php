@@ -6,7 +6,7 @@ use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PrintController;
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 Route::get('/logout', [AuthController::class, 'autoLogout'])->name('logout');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::get('/register', [AuthController::class, 'showRegisForm'])->name('register');
