@@ -236,7 +236,7 @@
     </div>
     <!-- // Modal "Tambah Hakim" -->
     
-    <!-- Modal "Tambah Hakim" -->
+    <!-- Modal "Tambah Penangung Jawab" -->
     <div class="modal fade" id="tambahPenanggungJawabModal" tabindex="-1" aria-labelledby="tambahPenanggungJawabModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -252,7 +252,7 @@
                     <form action="{{ route('add.user') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label for="namaHakim" class="form-label">Nama Hakim</label>
+                            <label for="namaHakim" class="form-label">Nama Penangung Jawab</label>
                             <input type="text" class="form-control" id="namaHakim" name="name" required placeholder="Masukkan nama hakim">
                         </div>
                     
@@ -294,7 +294,7 @@
             </div>
         </div>
     </div>
-    <!-- // Modal "Tambah Hakim" -->
+    <!-- // Modal "Penangung Jawab" -->
 
     <!-- Modal Tambah Bidang -->
     <div class="modal fade" id="tambahBidangModal" tabindex="-1" aria-labelledby="tambahBidangModalLabel" aria-hidden="true">

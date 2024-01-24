@@ -112,7 +112,9 @@
                                                 <a class="dropdown-item" href="{{ route('print.tindaklanjut', ['id' => $pengawasan->id]) }}" target="_blank">
                                                     <i class="bx bx-download me-1"></i> Eviden Tindak Lanjut
                                                 </a>
-                                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i> Delete</a>
+                                                <a class="dropdown-item" href="{{ route('delete.was', $pengawasan->id) }}">
+                                                    <i class="bx bx-trash me-1"></i> Delete
+                                                </a>
                                             </div>   
                                         </div>
                                     </td>

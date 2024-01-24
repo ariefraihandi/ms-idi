@@ -9,6 +9,7 @@ use App\Models\Pengawasan;
 use App\Models\Instansi; 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class PengawasanController extends Controller
 {
@@ -184,7 +185,37 @@ class PengawasanController extends Controller
             return redirect()->route('index.page')->with('success', $successMessage);
         }
     }
+
+    public function deletewas($id)
+    {
+        try {
+            // Lakukan operasi penghapusan berdasarkan $id
+            $pengawasan = Pengawasan::findOrFail($id);
+
+            // Hapus gambar eviden jika ada
+            $this->deleteFileIfExists($pengawasan->eviden);
+            $this->deleteFileIfExists($pengawasan->evidenafter);
+
+            // Hapus data dari database
+            $pengawasan->delete();
+
+            // Jika berhasil dihapus, bisa juga menambahkan pesan sukses atau redirect ke halaman tertentu
+            // return redirect()->route('your.route.name')->with('success', 'Data berhasil dihapus');
+            session()->flash('success', 'Data berhasil dihapus');
+            return back();       
+        } catch (\Exception $e) {
+            // Tangani kesalahan, bisa menampilkan pesan error atau melakukan hal lain sesuai kebutuhan
+            session()->flash('error', 'Pengawasan Gagal');
+            return back();         
+        }
+    }
     
+    private function deleteFileIfExists($filename)
+    {
+        if ($filename && File::exists(public_path('eviden/' . $filename))) {
+            File::delete(public_path('eviden/' . $filename));
+        }
+    }
 
     public function tindaklanjut(Request $request)
     {
