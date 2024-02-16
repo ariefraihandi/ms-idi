@@ -93,7 +93,7 @@
     <div class="WordSection1">
 
         <p class="MsoBodyText" style="margin-left: 5.35pt"><span lang="ms" style="font-size: 10.0pt"><img width="699"
-                    height="149" id="image1.jpeg" src="{{ asset('assets') }}/img/profile/kop-surat.png"></span></p>
+                    height="149" id="image1.jpeg" src="{{ asset('assets') }}/img/profile/{{$kop_surat}}"></span></p>
 
         <p class="MsoTitle"><span lang="ms">EVIDEN TEMUAN PENGAWASAN BIDANG</span></p>
         <table>

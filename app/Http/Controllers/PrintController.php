@@ -19,6 +19,7 @@ class PrintController extends Controller
         $data = [
             'pengawasan' => $pengawasanData,
             'long_name' => $instansiData->long_name,
+            'kop_surat' => $instansiData->kop_surat,
             'alamat' => $instansiData->alamat,
         ];
 
@@ -26,19 +27,26 @@ class PrintController extends Controller
     }
     
     public function printTindaklanjut($id)
-    {
-        // Assuming you have a Pengawasan model and you want to fetch data based on $id
+    {        
         $pengawasanData = Pengawasan::findOrFail($id);
         $instansiData = Instansi::first();
-
+    
+        // Cek jika kondisi after masih null
+        if ($pengawasanData->kondisiafter === null) {
+            session()->flash('error', 'Tindak lanjut belum dilakukan.');
+            return redirect()->back();
+        }
+    
         $data = [
-            'pengawasan' => $pengawasanData,
-            'long_name' => $instansiData->long_name,
-            'alamat' => $instansiData->alamat,
+            'pengawasan'    => $pengawasanData,
+            'long_name'     => $instansiData->long_name,
+            'kop_surat'     => $instansiData->kop_surat,
+            'alamat'        => $instansiData->alamat,
         ];
-
+    
         return view('Print.tindaklanjut', $data);
     }
+    
 
     public function filterReport(Request $request)
     {

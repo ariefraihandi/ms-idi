@@ -82,7 +82,7 @@ class PengawasanController extends Controller
                 'rekomendasi' => 'required|string',
                 'pengawas' => 'required|exists:users,id',
                 'penanggung_jawab' => 'required|exists:users,id',
-                'eviden' => 'required|file|mimes:jpeg,png,jpg,gif,svg,heic|max:2048',
+                'eviden' => 'required|file|mimes:jpeg,png,jpg,gif,svg,heic|max:9048',
             ]);
 
             // Menyimpan data pengawasan ke dalam database
