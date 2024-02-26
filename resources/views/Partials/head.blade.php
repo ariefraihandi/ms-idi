@@ -11,7 +11,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets') }}/img/favicon/arp.png" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets') }}/img/profile/{{ $instansi->logo }}" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
